@@ -1,0 +1,46 @@
+- marriage_data_pack
+  - pack.mcmeta
+  - data
+    - marriage
+      - functions
+        - marry.mcfunction
+        - divorce.mcfunction
+        - gift.mcfunction
+      - advancements
+        - marry.json
+
+{
+  "pack": {
+    "pack_format": 6,
+    "description": "Minecraft 結婚模組資料包"
+  }
+}
+
+# 定義結婚函數
+function marriage:marry
+
+# 播放音效
+playsound minecraft:entity.villager.yes ambient @a ~ ~ ~ 1 1 1
+
+# 定義解除婚姻函數
+function marriage:divorce
+
+# 播放音效
+playsound minecraft:entity.villager.no ambient @a ~ ~ ~ 1 1 1
+
+# 定義結婚禮物函數
+function marriage:gift
+
+# 播放音效
+playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1 1 1
+
+{
+  "criteria": {
+    "marry": {
+      "trigger": "minecraft:married"
+    }
+  },
+  "rewards": {
+    "function": "marriage:gift"
+  }
+}
